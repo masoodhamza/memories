@@ -1,7 +1,8 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:5000";
+const baseURL = "http://localhost:5000";
 
-export const fetchPosts = () => {
-  axios.get(`${baseUrl}/posts`);
+export const fetchPosts = async () => {
+  const data = await axios.get(`${baseURL}/posts`);
+  return data;
 };
