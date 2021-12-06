@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 const Posts = () => {
   const data = useSelector((store) => store.posts);
-  console.log("Posts =====> data", data);
+  console.log("Posts -> data", data);
 
   return (
     <div>
