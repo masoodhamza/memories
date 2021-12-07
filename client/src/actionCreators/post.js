@@ -1,4 +1,3 @@
-import React from "react";
 import * as api from "../api/index";
 
 export const fetchAllPosts = () => async (dispatch) => {

@@ -10,8 +10,8 @@ const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllPosts());
-  }, []);
-  
+  }, [dispatch]);
+
   return (
     <Container maxWidth="lg">
       <AppBar position="static" color="inherit">
