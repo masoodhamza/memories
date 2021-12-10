@@ -5,20 +5,25 @@ import Posts from "./components/Posts/Posts";
 import Form from "./components/Form/Form";
 import { useDispatch } from "react-redux";
 import { fetchAllPosts } from "./actionCreators/post";
-
+import useStyles from "./styles";
 const App = () => {
+  const classes = useStyles();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllPosts());
   }, [dispatch]);
-
   return (
     <Container maxWidth="lg">
-      <AppBar position="static" color="inherit">
-        <Typography variant="h2" align="center">
+      <AppBar position="static" className={classes.appBar} color="inherit">
+        <Typography variant="h2" className={classes.heading} align="center">
           Memories
         </Typography>
-        <img src={MemoriesImage} alt="memoriesImage" height="60" />
+        <img
+          src={MemoriesImage}
+          className={classes.image}
+          alt="memoriesImage"
+          height="60"
+        />
       </AppBar>
       <Grow in>
         <Container>

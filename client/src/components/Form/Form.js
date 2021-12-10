@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import FileBase from "react-file-base64";
 import { useDispatch } from "react-redux";
-import useStyles from "./styles";
 import { createPost } from "../../actionCreators/post";
+import useStyles from "./styles";
 
 const Form = () => {
   const [postData, setPostData] = useState({
@@ -13,18 +13,14 @@ const Form = () => {
     tags: "",
     selectedFile: "",
   });
-
   const dispatch = useDispatch();
-
   const classes = useStyles();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(postData);
     dispatch(createPost(postData));
     clear();
   };
-
   const clear = () => {
     setPostData({
       creator: "",
@@ -34,16 +30,15 @@ const Form = () => {
       selectedFile: "",
     });
   };
-
   return (
     <Paper className={classes.paper}>
       <form
-        className={`${classes.root} ${classes.form}`}
-        noValidate
         autoComplete="off"
+        noValidate
+        className={`${classes.root} ${classes.form}`}
         onSubmit={handleSubmit}
       >
-        <Typography variant="h5">Create a memory</Typography>
+        <Typography variant="h6">Create a Memory</Typography>
         <TextField
           name="creator"
           variant="outlined"
@@ -54,7 +49,6 @@ const Form = () => {
             setPostData({ ...postData, creator: e.target.value })
           }
         />
-
         <TextField
           name="title"
           variant="outlined"
@@ -63,7 +57,6 @@ const Form = () => {
           value={postData.title}
           onChange={(e) => setPostData({ ...postData, title: e.target.value })}
         />
-
         <TextField
           name="message"
           variant="outlined"
@@ -74,7 +67,6 @@ const Form = () => {
             setPostData({ ...postData, message: e.target.value })
           }
         />
-
         <TextField
           name="tags"
           variant="outlined"
@@ -83,7 +75,6 @@ const Form = () => {
           value={postData.tags}
           onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
         />
-
         <div className={classes.fileInput}>
           <FileBase
             type="file"
@@ -93,7 +84,6 @@ const Form = () => {
             }
           />
         </div>
-
         <Button
           className={classes.buttonSubmit}
           variant="contained"
@@ -104,7 +94,6 @@ const Form = () => {
         >
           Submit
         </Button>
-
         <Button
           variant="contained"
           color="secondary"
