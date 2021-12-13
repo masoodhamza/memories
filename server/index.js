@@ -10,7 +10,7 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
-app.use("/post", postRoutes);
+app.use("/posts", postRoutes);
 
 const CONNECTION_URL =
   "mongodb+srv://hamza:masood@cluster0.3o3ny.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
